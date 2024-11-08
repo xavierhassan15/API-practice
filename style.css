@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #3a6073, #16222a, #43cea2, #185a9d);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    color: #eee;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  h2, h3 {
+    color: #ffffff;
+    font-size: 2em;
+    margin: 0.5em 0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  form {
+    background: rgba(25, 35, 50, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 80%;
+    max-width: 500px;
+  }
+  
+  form label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #ddd;
+  }
+  
+  form input[type="text"],
+  form input[type="number"],
+  form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+  }
+  
+  form input[type="text"],
+  form input[type="number"] {
+    border: 1px solid #444;
+    background-color: #1a2b3c;
+    color: #ddd;
+    transition: border 0.3s;
+  }
+  
+  form input[type="text"]:focus,
+  form input[type="number"]:focus {
+    border: 1px solid #43cea2;
+  }
+  
+  form button {
+    background-color: #43cea2;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  
+  form button:hover {
+    background-color: #185a9d;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  thead {
+    background-color: #43cea2;
+    color: #ffffff;
+  }
+  
+  thead th {
+    padding: 15px;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  
+  tbody tr {
+    background-color: #2a3b4c;
+    transition: all 0.3s ease;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #1a2b3c;
+  }
+  
+  tbody tr:hover {
+    background-color: #324b64;
+    transform: scale(1.02);
+  }
+  
+  tbody td {
+    padding: 15px;
+    font-size: 1em;
+    text-align: center;
+    color: #ccc;
+  }
+  
+  button {
+    background-color: #43cea2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    background-color: #185a9d;
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }  

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Operations with AJAX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Player Management</h2>
+
+<form id="playerForm">
+  <label for="playerId">Player ID:</label>
+  <input type="text" id="playerId" required>
+  <span id="idError" style="color: red; font-size: 0.9em; display: none;">Player ID cannot be empty or already exist.</span><br><br>
+  
+  <label for="name">Name:</label>
+  <input type="text" id="name" required><br><br>
+  
+  <label for="age">Age:</label>
+  <input type="number" id="age" required>
+  <span id="ageError" style="color: red; font-size: 0.9em; display: none;">Age cannot be negative.</span><br><br>
+  
+  <label for="role">Role:</label>
+  <input type="text" id="role" required><br><br>
+  
+  <button type="submit">Save Player</button>
+</form>
+
+<button id="showDataBtn" onclick="togglePlayerData(true)">Show Data</button>
+<button id="hideDataBtn" onclick="togglePlayerData(false)" style="display: none;">Hide Data</button>
+
+<h3>Players List</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Player ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="playerList" style="display: none;"></tbody>
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>
