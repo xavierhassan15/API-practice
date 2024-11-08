@@ -1,5 +1,7 @@
 const apiURL = "https://672dd893fd8979715643eead.mockapi.io/product/players";
 
+let isEditing = false;
+
 document.getElementById("playerForm").addEventListener("submit", async function(event) {
   event.preventDefault();
 
@@ -8,14 +10,15 @@ document.getElementById("playerForm").addEventListener("submit", async function(
   const age = document.getElementById("age").value;
   const role = document.getElementById("role").value;
 
-  const isIdValid = await validateUniqueId(playerId);
   const isAgeValid = validateAge(age);
+  if (!isAgeValid) return;
 
-  if (!isIdValid || !isAgeValid) {
-    return;
+  if (!isEditing) {
+    const isIdValid = await validateUniqueId(playerId);
+    if (!isIdValid) return;
   }
 
-  if (document.getElementById("playerId").disabled) {
+  if (isEditing) {
     updatePlayer(playerId, name, age, role);
   } else {
     createPlayer(playerId, name, age, role);
@@ -29,7 +32,7 @@ document.getElementById("age").addEventListener("input", function() {
 function validateAge(age) {
   const ageError = document.getElementById("ageError");
   if (age < 0) {
-    ageError.style.display = "inline";
+    ageError.style.display = "block";
     ageError.textContent = "Age cannot be a negative value.";
     return false;
   } else {
@@ -42,7 +45,7 @@ async function validateUniqueId(playerId) {
   const idError = document.getElementById("idError");
   if (!playerId) {
     idError.innerText = "Player ID cannot be empty.";
-    idError.style.display = "inline";
+    idError.style.display = "block";
     return false;
   }
 
@@ -52,7 +55,7 @@ async function validateUniqueId(playerId) {
   const idExists = players.some(player => player.id === playerId);
   if (idExists) {
     idError.innerText = "Player ID already exists. Please enter a unique ID.";
-    idError.style.display = "inline";
+    idError.style.display = "block";
     return false;
   } else {
     idError.style.display = "none";
@@ -129,6 +132,7 @@ function deletePlayer(id) {
 }
 
 function editPlayer(id, name, age, role) {
+  isEditing = true;
   document.getElementById("playerId").value = id;
   document.getElementById("playerId").disabled = true;
   document.getElementById("name").value = name;
@@ -137,6 +141,7 @@ function editPlayer(id, name, age, role) {
 }
 
 function resetForm() {
+  isEditing = false;
   document.getElementById("playerId").value = "";
   document.getElementById("playerId").disabled = false;
   document.getElementById("name").value = "";
